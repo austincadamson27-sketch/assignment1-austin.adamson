@@ -1,0 +1,160 @@
+/* ==========================================
+   Assignment 2 - Styling Your Website with CSS
+   Author: Austin Adamson
+   Description: Styles index.html, about.html, contact.html
+   ========================================== */
+
+
+/* ---------- Global Reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+
+/* ---------- Body Styling (Required) ---------- */
+body {
+  margin: 0; /* Do not rely on browser default */
+  font-family: Arial, Helvetica, sans-serif; /* Required font */
+  line-height: 1.6; /* Required line height */
+  background-color: #f4f6fb; /* Required background color */
+  color: #1f2937;
+}
+
+
+/* ---------- Header (Fixed + Shadow Required) ---------- */
+header {
+  position: fixed; /* Required: sticky/fixed header */
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  background-color: #111827;
+  color: #ffffff;
+  padding: 18px 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Required shadow */
+  z-index: 1000;
+}
+
+/* Center header content */
+header h1,
+header p,
+header nav {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: 1.4rem;
+}
+
+header p {
+  margin: 0 0 12px;
+  opacity: 0.9;
+}
+
+
+/* ---------- Navigation Menu (Styled + Hover Required) ---------- */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 8px 14px;
+  border-radius: 8px;
+
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Required hover effect */
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Highlight current page */
+nav a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.28);
+}
+
+
+/* ---------- Main Content (Centered Using Flexbox Required) ---------- */
+main {
+  display: flex; /* Required flexbox */
+  justify-content: center; /* Centers sections horizontally */
+
+  padding: 120px 16px 40px; /* Top padding prevents header overlap */
+}
+
+/* Style each section as a card */
+main > section {
+  width: 100%;
+  max-width: 1000px;
+
+  background-color: #ffffff;
+  padding: 20px 24px;
+  margin: 14px 0;
+
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ---------- Headings ---------- */
+h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+h3 {
+  margin-bottom: 6px;
+}
+
+
+/* ---------- Lists ---------- */
+ul {
+  padding-left: 20px;
+}
+
+
+/* ---------- Links Inside Main ---------- */
+main a {
+  color: #1d4ed8;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------- Image Styling ---------- */
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+
+/* ---------- Footer (Must Match Header) ---------- */
+footer {
+  background-color: #111827; /* Matches header */
+  color: #ffffff;
+  text-align: center;
+  padding: 18px 16px;
+  margin-top: 20px;
+}
