@@ -2,6 +2,7 @@
    Assignment 2 - Styling Your Website with CSS
    Author: Austin Adamson
    Description: Styles index.html, about.html, contact.html
+   Assignment 3 Update: Added JavaScript theme switcher styling
    ========================================== */
 
 
@@ -14,10 +15,13 @@
 /* ---------- Body Styling (Required) ---------- */
 body {
   margin: 0; /* Do not rely on browser default */
+  padding-top: 210px; /* Prevents fixed header from covering page content */
   font-family: Arial, Helvetica, sans-serif; /* Required font */
   line-height: 1.6; /* Required line height */
   background-color: #f4f6fb; /* Required background color */
   color: #1f2937;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -31,15 +35,19 @@ header {
   background-color: #111827;
   color: #ffffff;
   padding: 18px 16px;
+  text-align: center;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Required shadow */
   z-index: 1000;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Center header content */
 header h1,
 header p,
-header nav {
+header nav,
+#theme-toggle {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -60,11 +68,12 @@ header p {
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 10px 0;
 
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 nav a {
@@ -88,12 +97,35 @@ nav a[aria-current="page"] {
 }
 
 
+/* ---------- Theme Toggle Button ---------- */
+#theme-toggle {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #111827;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+#theme-toggle:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+
 /* ---------- Main Content (Centered Using Flexbox Required) ---------- */
 main {
   display: flex; /* Required flexbox */
+  flex-direction: column;
+  align-items: center;
   justify-content: center; /* Centers sections horizontally */
 
-  padding: 120px 16px 40px; /* Top padding prevents header overlap */
+  padding: 24px 16px 40px;
 }
 
 /* Style each section as a card */
@@ -107,6 +139,8 @@ main > section {
 
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -157,4 +191,53 @@ footer {
   text-align: center;
   padding: 18px 16px;
   margin-top: 20px;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* ---------- Dark Mode Styles for Assignment 3 ---------- */
+body.dark-mode {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+body.dark-mode header {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode main > section {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark-mode main a {
+  color: #93c5fd;
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+
+/* ---------- Responsive Adjustment ---------- */
+@media (max-width: 768px) {
+  body {
+    padding-top: 240px;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
 }
